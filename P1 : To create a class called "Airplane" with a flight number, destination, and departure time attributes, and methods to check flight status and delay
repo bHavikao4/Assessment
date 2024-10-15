@@ -1,0 +1,39 @@
+/*write a Java program to create a class called "Airplane" with a flight number, destination,
+and departure time attributes, and methods to check flight status and delay*/
+
+package test3;
+import java.time.LocalTime;
+public class Airplane {
+    private String flightNumber;
+    private String destination;
+    private LocalTime departureTime;
+    private boolean isDelayed;
+    public Airplane(String flightNumber, String destination, LocalTime departureTime) {
+        this.flightNumber = flightNumber;
+        this.destination = destination;
+        this.departureTime = departureTime;
+        this.isDelayed = false; 
+    }
+    public void setDelay(boolean isDelayed) {
+        this.isDelayed = isDelayed;
+    } 
+    public String checkFlightStatus() {
+        return isDelayed ? "FLIGHT           : " + flightNumber + " TO " + destination + " is delayed." 
+                         : "FLIGHT           : " + flightNumber + " TO " + destination + " is on time.";
+    }
+    public boolean isFlightDelayed() {
+        return isDelayed;
+    }
+    public void displayFlightDetails() {
+        System.out.println("FLIGHT NUMBER    : "  + flightNumber);
+        System.out.println("DESTINATION TIME : " + destination);
+        System.out.println("DEPARTURE TIME   : " + departureTime);
+        System.out.println(checkFlightStatus());
+    }
+    public static void main(String[] args) {
+        Airplane flight1 = new Airplane("AA123", " vizag ", LocalTime.of(1,20));
+        flight1.displayFlightDetails();
+        flight1.setDelay(true);
+        flight1.displayFlightDetails();
+	}
+}
