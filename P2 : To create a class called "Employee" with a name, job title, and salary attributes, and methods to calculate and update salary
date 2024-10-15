@@ -1,0 +1,47 @@
+/* Write a Java program to create a class called "Employee" with a name, job title, and salary
+attributes, and methods to calculate and update salary */
+
+
+package test3;
+public class employee {
+		    private String name;
+		    private String jobTitle;
+		    private double salary;
+		    public employee(String name, String jobTitle, double salary) {
+		        this.name = name;
+		        this.jobTitle = jobTitle;
+		        this.salary = salary;
+		    }
+		    public String getName()        {
+		        return name;
+		    }
+
+		    public String getJobTitle()   {
+		        return jobTitle;
+		    }
+
+		    public double getSalary()     {
+		        return salary;
+		    }
+		    public void updateSalary(double percentageIncrease) {
+		        if (percentageIncrease > 0) {
+		            salary += salary * (percentageIncrease / 100);
+		            System.out.println("SALARY UPDATED :  " + percentageIncrease + "%.");  }
+		        else {
+		        	System.out.println("Invalid percentage increase.");  }
+		    }
+		    public double calculateAnnualSalary() {
+		        return salary * 12;
+		    }
+		    public void displayEmployeeDetails() {
+		        System.out.println("NAME           :  " + name);
+		        System.out.println("JOB TITLE      :  " + jobTitle);
+		        System.out.println("MONTHLY SALARY :  " + salary);
+		        System.out.println("ANNUAL SALARY  :  " + calculateAnnualSalary());
+		    }
+		    public static void main(String[] args) {
+		        employee emp = new employee("Bhavika", "Software Engineer", 10000);
+		        emp.displayEmployeeDetails();
+		        emp.updateSalary(10);
+		        emp.displayEmployeeDetails();
+	}}
