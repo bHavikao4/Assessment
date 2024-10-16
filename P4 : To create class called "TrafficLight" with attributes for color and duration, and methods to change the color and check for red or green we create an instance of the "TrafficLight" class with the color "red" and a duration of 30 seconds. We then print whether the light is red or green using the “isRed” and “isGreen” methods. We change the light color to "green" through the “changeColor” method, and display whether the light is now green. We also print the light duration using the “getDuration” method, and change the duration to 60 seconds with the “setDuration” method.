@@ -1,0 +1,41 @@
+/* Write a Java program to create class called "TrafficLight" with attributes for color and duration, and methods to change the color and check for red or green we create an instance of the "TrafficLight" class with the color "red" and a duration of 30 seconds. We then print whether the light is red or green using the “isRed” and “isGreen” methods. We change the light color to "green" through the “changeColor” method, and display whether the light is now green. We also print the light duration using the “getDuration” method, and change the duration to 60 seconds with the “setDuration” method.*/
+
+
+
+package test3;
+public class traffic {
+	    private String color;
+	    private int duration; 
+	    public traffic(String color, int duration) {
+	        this.color = color;
+	        this.duration = duration;
+	    }
+	    public void changeColor(String newColor) {
+	        this.color = newColor;
+	    }
+	    public boolean isRed() {
+	        return this.color.equalsIgnoreCase("red");
+	    }
+	    public boolean isGreen() {
+	        return this.color.equalsIgnoreCase("green");
+	    }
+	    public int getDuration() {
+	        return this.duration;
+	    }
+	    public void setDuration(int newDuration) {
+	        this.duration = newDuration;
+	    }
+
+	    public static void main(String[] args) {
+	        traffic trafficLight = new traffic("red", 30);
+	        System.out.println("IS THE LIGHT RED      : " + trafficLight.isRed());
+	        System.out.println("IS THE LIGHT GREEN    : " + trafficLight.isGreen());
+	        trafficLight.changeColor("green");
+	        System.out.println("{ AFTER CHANGING COLOUR } ");
+	        System.out.println("IS THE LIGHT RED      : " + trafficLight.isRed());
+	        System.out.println("IS THE LIGHT GREEN    : " + trafficLight.isGreen());
+	        System.out.println("CURRENT DURATION      : " + trafficLight.getDuration() + " seconds");
+	        trafficLight.setDuration(60);
+	        System.out.println("NEW DURATION          : " + trafficLight.getDuration() + " seconds");
+	    }
+}
