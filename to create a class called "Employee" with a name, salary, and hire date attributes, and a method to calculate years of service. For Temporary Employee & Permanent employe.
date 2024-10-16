@@ -1,0 +1,47 @@
+/* Write a Java program to create a class called "Employee" with a name, salary, and hire date attributes, and a method to calculate years of service. For Temporary Employee & Permanent employe*/
+
+
+
+package test3;
+import java.time.LocalDate;
+import java.time.Period;
+public class Employee2 {
+    String name;
+    double salary;
+    LocalDate hireDate;
+    public void setDetails(String n, double sal, LocalDate hDate) {
+        this.name = n;
+        this.salary = sal;
+        this.hireDate = hDate;
+    }
+    public void displayInfo() {
+        System.out.println("EMPLOYEE NAME    : " + name);
+        System.out.println("SALARY           : " + salary);
+        System.out.println("HIRE DATE        : " + hireDate);    } }
+class Temporary extends Employee2 {
+
+    LocalDate contractEndsIn;
+
+    public void setDetails(String n, double sal, LocalDate hDate, int contractTime) {
+        super.setDetails(n, sal, hDate);
+        this.contractEndsIn = hDate.plusYears(contractTime);  }
+    public void displayInfo() {
+        System.out.println("EMPLOYEE TYPE    : Temporary");
+        super.displayInfo();
+        System.out.println("END OF CONTRACT  : " + contractEndsIn);   } }
+class Permanent extends Employee2 {
+    public void setDetails(String n, double sal, LocalDate hDate) {
+        super.setDetails(n, sal, hDate);  }
+    public void displayInfo() {
+        System.out.println("EMPLOYEE TYPE    : Permanent");
+        super.displayInfo();
+        LocalDate currentDate = LocalDate.now();
+        System.out.println("YEAR OF SERVICE  : " + Period.between(super.hireDate, currentDate).getYears());   }
+    public static void main(String[] args) {
+        Temporary ob1 = new Temporary();
+        ob1.setDetails("Bhavika ", 15000, LocalDate.of(2023, 3, 7), 2);
+        ob1.displayInfo();
+        System.out.println();
+        Permanent ob2 = new Permanent();
+        ob2.setDetails("sai ", 25000, LocalDate.of(2021, 2, 12));
+        ob2.displayInfo();   }  }
